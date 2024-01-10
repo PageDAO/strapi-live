@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "landing_pages",
+  "info": {
+    "singularName": "landing-page",
+    "pluralName": "landing-pages",
+    "displayName": "Landing Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "Subheading": {
+      "type": "text"
+    },
+    "Caption": {
+      "type": "string"
+    },
+    "FactName": {
+      "displayName": "FactBlock",
+      "type": "component",
+      "repeatable": true,
+      "component": "fact.fact-block"
+    }
+  }
+}

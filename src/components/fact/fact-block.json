@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_fact_fact_blocks",
+  "info": {
+    "displayName": "FactBlock"
+  },
+  "options": {},
+  "attributes": {
+    "MainInfo": {
+      "type": "string"
+    },
+    "SecondaryInfo": {
+      "type": "string"
+    }
+  }
+}
