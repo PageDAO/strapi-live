@@ -15,7 +15,6 @@
     "@strapi/plugin-i18n": "4.16.2",
     "@strapi/plugin-users-permissions": "4.16.2",
     "@strapi/strapi": "4.16.2",
-    "@swensonhe/strapi-plugin-firebase-auth": "^1.0.7",
     "better-sqlite3": "8.6.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
