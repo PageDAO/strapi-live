@@ -3,7 +3,7 @@ module.exports = ({ env }) => ({
   //
   // See https://strapi.io/documentation/v3.x/getting-started/deployment.html#application-configuration
   host: env("HOST", "0.0.0.0"),
-  port: env.int("PORT", 1337),
+  port: env.int("PORT", 80),
 
   // GraphQL endpoint configuration.
   //
