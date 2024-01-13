@@ -55,7 +55,7 @@ web:
   commands:
     # The command to launch your app. If it terminates, it’s restarted immediately.
     start: |
-      yarn start
+      yarn develop --watch-admin
 
 # Variables to control the environment. More information: https://docs.platform.sh/create-apps/app-reference.html#variables
 variables:
