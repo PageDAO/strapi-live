@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "release_configs",
+  "info": {
+    "singularName": "release-config",
+    "pluralName": "release-configs",
+    "displayName": "Release Config"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "author_profile": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::author-profile.author-profile",
+      "inversedBy": "release_configs"
+    },
+    "ReleaseDateTime": {
+      "type": "datetime"
+    }
+  }
+}

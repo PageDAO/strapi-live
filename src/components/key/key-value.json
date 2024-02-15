@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_key_key_values",
+  "info": {
+    "displayName": "KeyValue"
+  },
+  "options": {},
+  "attributes": {
+    "Value": {
+      "type": "text"
+    },
+    "Key": {
+      "type": "string"
+    }
+  }
+}

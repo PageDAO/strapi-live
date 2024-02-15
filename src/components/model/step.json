@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_model_steps",
+  "info": {
+    "displayName": "Step",
+    "icon": "arrowRight"
+  },
+  "options": {},
+  "attributes": {
+    "Order": {
+      "type": "integer"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    }
+  }
+}

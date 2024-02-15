@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_stack_stacks",
+  "info": {
+    "displayName": "Stack"
+  },
+  "options": {},
+  "attributes": {
+    "model": {
+      "displayName": "Model or Component",
+      "type": "component",
+      "repeatable": false,
+      "component": "model.model-or-component"
+    }
+  }
+}

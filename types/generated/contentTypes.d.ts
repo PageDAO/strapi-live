@@ -722,7 +722,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
   options: {
     draftAndPublish: false;
-    timestamps: true;
   };
   attributes: {
     username: Attribute.String &
@@ -751,6 +750,8 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    dynamicUUID: Attribute.String;
+    dynamicEVMaddress: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -761,6 +762,168 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::users-permissions.user',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiAuthorProfileAuthorProfile extends Schema.CollectionType {
+  collectionName: 'author_profiles';
+  info: {
+    singularName: 'author-profile';
+    pluralName: 'author-profiles';
+    displayName: 'Author Profile';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String;
+    Website: Attribute.String;
+    release_configs: Attribute.Relation<
+      'api::author-profile.author-profile',
+      'oneToMany',
+      'api::release-config.release-config'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::author-profile.author-profile',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::author-profile.author-profile',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiBookBook extends Schema.CollectionType {
+  collectionName: 'books';
+  info: {
+    singularName: 'book';
+    pluralName: 'books';
+    displayName: 'Book';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    ISBN: Attribute.String;
+    coverimage: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::book.book', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::book.book', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiConfigConfig extends Schema.SingleType {
+  collectionName: 'configs';
+  info: {
+    singularName: 'config';
+    pluralName: 'configs';
+    displayName: 'Config';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    keyvalue: Attribute.Component<'key.key-value', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::config.config',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::config.config',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPagePage extends Schema.CollectionType {
+  collectionName: 'pages';
+  info: {
+    singularName: 'page';
+    pluralName: 'pages';
+    displayName: 'Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    Slug: Attribute.String;
+    Type: Attribute.Enumeration<
+      [
+        'Landing Page',
+        'About Page',
+        'Updates',
+        'Article',
+        'Profile',
+        'Book Collection'
+      ]
+    >;
+    seo: Attribute.Component<'seo.seo'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiReleaseConfigReleaseConfig extends Schema.CollectionType {
+  collectionName: 'release_configs';
+  info: {
+    singularName: 'release-config';
+    pluralName: 'release-configs';
+    displayName: 'Release Config';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String;
+    Description: Attribute.Text;
+    author_profile: Attribute.Relation<
+      'api::release-config.release-config',
+      'manyToOne',
+      'api::author-profile.author-profile'
+    >;
+    ReleaseDateTime: Attribute.DateTime;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::release-config.release-config',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::release-config.release-config',
       'oneToOne',
       'admin::user'
     > &
@@ -786,6 +949,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::author-profile.author-profile': ApiAuthorProfileAuthorProfile;
+      'api::book.book': ApiBookBook;
+      'api::config.config': ApiConfigConfig;
+      'api::page.page': ApiPagePage;
+      'api::release-config.release-config': ApiReleaseConfigReleaseConfig;
     }
   }
 }

@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "configs",
+  "info": {
+    "singularName": "config",
+    "pluralName": "configs",
+    "displayName": "Config"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "keyvalue": {
+      "type": "component",
+      "repeatable": true,
+      "component": "key.key-value"
+    }
+  }
+}
