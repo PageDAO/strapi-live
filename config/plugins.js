@@ -10,5 +10,6 @@ module.exports = () => ({
     'strapi-dynamicxyz-auth': {
         enabled: true,
         resolve: './src/plugins/strapi-dynamicxyz-auth'
+        config: { DYNAMICXYZ_JSON_ENCRYPTION_KEY:"" }
       },
 });

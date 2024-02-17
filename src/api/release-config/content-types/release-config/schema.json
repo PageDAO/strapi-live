@@ -4,7 +4,8 @@
   "info": {
     "singularName": "release-config",
     "pluralName": "release-configs",
-    "displayName": "Release Config"
+    "displayName": "Release Config",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -17,14 +18,33 @@
     "Description": {
       "type": "text"
     },
-    "author_profile": {
+    "author_profiles": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::author-profile.author-profile",
       "inversedBy": "release_configs"
     },
     "ReleaseDateTime": {
       "type": "datetime"
+    },
+    "Chain": {
+      "type": "enumeration",
+      "enum": [
+        "Ethereum",
+        "Polygon",
+        "Optimism",
+        "Arbitrum",
+        "Solana",
+        "CosmosHub (inscription)",
+        "Osmosis",
+        "Stargaze",
+        "IrisNet",
+        "LikeCoin",
+        "OmniFlix",
+        "Secret Network",
+        "Bitcoin (ordinals)",
+        "Tezos"
+      ]
     }
   }
 }

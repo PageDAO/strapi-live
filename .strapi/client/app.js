@@ -12,7 +12,11 @@ import usersPermissions from "@strapi/plugin-users-permissions/strapi-admin";
 import strapiDynamicxyzAuth from "../../src/plugins/strapi-dynamicxyz-auth/strapi-admin";
 import { renderAdmin } from "@strapi/strapi/admin";
 
+import customisations from "../../src/admin/app.js";
+
 renderAdmin(document.getElementById("strapi"), {
+  customisations,
+
   plugins: {
     "drag-drop-content-types": dragDropContentTypes,
     "content-type-builder": contentTypeBuilder,

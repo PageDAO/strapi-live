@@ -20,9 +20,9 @@
     },
     "release_configs": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::release-config.release-config",
-      "mappedBy": "author_profile"
+      "mappedBy": "author_profiles"
     }
   }
 }

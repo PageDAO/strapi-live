@@ -784,7 +784,7 @@ export interface ApiAuthorProfileAuthorProfile extends Schema.CollectionType {
     Website: Attribute.String;
     release_configs: Attribute.Relation<
       'api::author-profile.author-profile',
-      'oneToMany',
+      'manyToMany',
       'api::release-config.release-config'
     >;
     createdAt: Attribute.DateTime;
@@ -900,6 +900,7 @@ export interface ApiReleaseConfigReleaseConfig extends Schema.CollectionType {
     singularName: 'release-config';
     pluralName: 'release-configs';
     displayName: 'Release Config';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -907,12 +908,30 @@ export interface ApiReleaseConfigReleaseConfig extends Schema.CollectionType {
   attributes: {
     Name: Attribute.String;
     Description: Attribute.Text;
-    author_profile: Attribute.Relation<
+    author_profiles: Attribute.Relation<
       'api::release-config.release-config',
-      'manyToOne',
+      'manyToMany',
       'api::author-profile.author-profile'
     >;
     ReleaseDateTime: Attribute.DateTime;
+    Chain: Attribute.Enumeration<
+      [
+        'Ethereum',
+        'Polygon',
+        'Optimism',
+        'Arbitrum',
+        'Solana',
+        'CosmosHub (inscription)',
+        'Osmosis',
+        'Stargaze',
+        'IrisNet',
+        'LikeCoin',
+        'OmniFlix',
+        'Secret Network',
+        'Bitcoin (ordinals)',
+        'Tezos'
+      ]
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
